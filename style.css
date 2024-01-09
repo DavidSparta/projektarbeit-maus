@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {font-size: 2.5rem; font-weight: 500;text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);}
+h2 {font-size: 2rem; font-weight: 500;text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);}
+h3 {font-size: 1.75rem; font-weight: 500;text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);}
+h4 {font-size: 1.5rem; font-weight: 500;text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);}
+h5 {font-size: 1.25rem; font-weight: 500;text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);}
+h6 {font-size: 1rem; font-weight: 500;text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);}
+
+.site-nav, .site-footer {
+    background-color: #000000;
+    color: white;
+    padding: 0.5rem;
+    margin: 1rem 0;
+}
+
+.site-nav a,
+.site-footer a{
+    color: white;
+    text-decoration: none;
+}
+
+.site-nav li {
+    display: inline;
+    margin-right: 0.5rem;
+}
+
+.site-nav a:hover,
+.site-nav a:focus,
+.site-footer a:hover,
+.site-footer a:focus,
+.site-nav a.active {
+    border-bottom: 1.5px solid white;
+}
+
+
+.site-footer {
+    font-size: smaller;
+    text-align: right;
+}
+
+.site-content { line-height: 1.5;}
+
+.site-content ul {
+    list-style-type: "\1FAF6";
+}
+
+
