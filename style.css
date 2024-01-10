@@ -104,7 +104,7 @@ details[open] summary::marker {
 
 
 .site-footer {
-    font-size: smaller;
+    font-size: larger;
     text-align: right;
     background-color: rgb(233, 191, 191);
 }
@@ -128,7 +128,7 @@ details[open] summary::marker {
 /* Stellen Sie sicher, dass Links auf Mobilgeräten nicht "hover" Effekte zeigen */
 /* Rest des CSS bleibt gleich */
 
-@media (max-width: 300px) {
+@media (max-width: 350px) {
     .site-nav ul {
         flex-direction: column; /* Ändert die Flex-Richtung zu einer Spalte für mobile Ansicht */
     }
