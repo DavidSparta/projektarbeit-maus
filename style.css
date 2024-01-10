@@ -39,7 +39,7 @@ details[open] summary::marker {
 
 .header-nav-wrapper {
     background-color: rgb(233, 191, 191);
-        width: 100%; /* Setzt die Breite des Wrappers auf 100% des Viewports */
+    width: 100%; /* Setzt die Breite des Wrappers auf 100% des Viewports */
     margin: 0; /* Entfernt jegliche Margin */
     padding: 0; /* Entfernt jegliche Padding */
     box-sizing: border-box; /* Stellt sicher, dass Padding und Border in die Breite inkludiert sind */
@@ -106,6 +106,7 @@ details[open] summary::marker {
 .site-footer {
     font-size: smaller;
     text-align: right;
+    background-color: rgb(233, 191, 191);
 }
 
 .site-content { line-height: 1.5;}
@@ -125,15 +126,11 @@ details[open] summary::marker {
 }
 
 /* Stellen Sie sicher, dass Links auf Mobilgeräten nicht "hover" Effekte zeigen */
-@media (hover: hover) {
-    .site-nav a:hover {
-        background-color: #e9e9e9;
-    }
-}
+/* Rest des CSS bleibt gleich */
 
-@media (max-width: 600px) { /* Für kleinere Bildschirme */
+@media (max-width: 300px) {
     .site-nav ul {
-        flex-direction: inline;
+        flex-direction: column; /* Ändert die Flex-Richtung zu einer Spalte für mobile Ansicht */
     }
 
     .site-nav li {
@@ -141,9 +138,18 @@ details[open] summary::marker {
     }
 
     .site-nav a {
-        display: block; /* Verhindert, dass andere Elemente auf derselben Zeile erscheinen */
+        display: block; /* Lässt jeden Link die volle Breite einnehmen */
         text-align: center; /* Zentriert den Linktext */
         margin: 5px 0; /* Fügt vertikalen Abstand zwischen den Links hinzu */
     }
+
+    .site-footer {
+        display: flex; /* Verwendet Flexbox für den Footer */
+        justify-content: flex-end; /* Schiebt den Inhalt nach rechts */
+        padding: 1rem; /* Einheitliches Padding */
+        margin: 0; /* Entfernt den Margin */
+        font-size: smaller; /* Kleinere Schriftgröße für den Footer-Text */
+    }
 }
+
 
