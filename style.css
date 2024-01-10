@@ -1,30 +1,97 @@
-body {
+body, html {
     font-family: Arial, Helvetica, sans-serif;
+    margin: 0; /* Entfernt den Standard-Margin des Body und HTML Elements */
+    padding: 0; /* Entfernt das Standard-Padding */
+    width: 100%; /* Stellt sicher, dass der Body und HTML Elemente die volle Breite einnehmen */
+    height: 100%; /* Optional: Für die volle Höhe */
 }
 
-h1 {font-size: 2.5rem; font-weight: 500;text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);}
-h2 {font-size: 2rem; font-weight: 500;text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);}
-h3 {font-size: 1.75rem; font-weight: 500;text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);}
-h4 {font-size: 1.5rem; font-weight: 500;text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);}
-h5 {font-size: 1.25rem; font-weight: 500;text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);}
-h6 {font-size: 1rem; font-weight: 500;text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);}
+h1 {font-size: 2rem; font-weight: 500;text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);}
+h2 {font-size: 1.75rem; font-weight: 500;text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);}
+h3 {font-size: 1.5rem; font-weight: 500;text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);}
 
-.site-nav, .site-footer {
+/*Bild passt sich an an zur Verfügung stehenden Platz, wenn es zu groß ist für den Bildschrim*/
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+details {
+    border: 1px solid #999;
+    padding: 1rem;
+    background-color: #eee;
+}
+
+summary {
+    font-weight: bold;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+summary::marker {
+    content: "+\00a0"; 
+    font-weight: bold;
+}
+
+details[open] summary::marker {
+    content: "×\00a0"; /* Symbol für geöffnetes Akkordeon */
+}
+
+.header-nav-wrapper {
+    background-color: rgb(233, 191, 191);
+        width: 100%; /* Setzt die Breite des Wrappers auf 100% des Viewports */
+    margin: 0; /* Entfernt jegliche Margin */
+    padding: 0; /* Entfernt jegliche Padding */
+    box-sizing: border-box; /* Stellt sicher, dass Padding und Border in die Breite inkludiert sind */
+    display: flex; /* Behält das Flex-Layout bei */
+    justify-content: space-between; /* Positioniert Header und Navigation am Anfang und Ende des Containers */
+    align-items: center; /* Zentriert die Elemente vertikal */
+
+
+}
+
+.header-nav-wrapper h1 {
+    padding-left: 0.5rem;
+    font-family: 'Dancing Script', cursive;
+    width: 100%;
+    margin: ;
+}
+
+.site-header,
+.site-nav {
+    margin: 0; /* Entfernt mögliche Standardmargen */
+    font-size: larger;
+}
+
+
+.site-footer {
     background-color: #000000;
     color: white;
-    padding: 0.5rem;
+    padding: 1rem;
     margin: 1rem 0;
 }
 
 .site-nav a,
 .site-footer a{
-    color: white;
     text-decoration: none;
+    color: #333; /* Dunkle Schriftfarbe für besseren Kontrast */
+    background-color: #f8f8f8; /* Heller Hintergrund */
+    padding: 10px 15px; /* Große Berührungsflächen */
+    margin: 0 5px; /* Etwas Abstand zwischen den Links */
+    border-radius: 5px; /* Abgerundete Ecken */
+    display: inline-block; /* Ermöglicht das Setzen von Padding und Margin */
+    transition: background-color 0.3s ease; /* Glatte Farbübergänge */
+}
+.site-nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .site-nav li {
     display: inline;
-    margin-right: 0.5rem;
+    padding: 0 10px;
 }
 
 .site-nav a:hover,
@@ -32,7 +99,7 @@ h6 {font-size: 1rem; font-weight: 500;text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1
 .site-footer a:hover,
 .site-footer a:focus,
 .site-nav a.active {
-    border-bottom: 1.5px solid white;
+    background-color: #ddd;
 }
 
 
@@ -47,4 +114,36 @@ h6 {font-size: 1rem; font-weight: 500;text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1
     list-style-type: "\1FAF6";
 }
 
+.site-content a[href^="https"]::before {
+    content:"\1F517";
+}
+
+/*Farbe kann nicht hier sondern in der Datei mit dem Attribut fill gesetzt werden*/
+.site-content img[src$=".svg"] {
+    width: 4rem;
+    height: auto;
+}
+
+/* Stellen Sie sicher, dass Links auf Mobilgeräten nicht "hover" Effekte zeigen */
+@media (hover: hover) {
+    .site-nav a:hover {
+        background-color: #e9e9e9;
+    }
+}
+
+@media (max-width: 600px) { /* Für kleinere Bildschirme */
+    .site-nav ul {
+        flex-direction: inline;
+    }
+
+    .site-nav li {
+        width: 100%; /* Lässt die Links die volle Breite einnehmen */
+    }
+
+    .site-nav a {
+        display: block; /* Verhindert, dass andere Elemente auf derselben Zeile erscheinen */
+        text-align: center; /* Zentriert den Linktext */
+        margin: 5px 0; /* Fügt vertikalen Abstand zwischen den Links hinzu */
+    }
+}
 
