@@ -84,30 +84,31 @@ body, html {
     left: 50px;
 }
 
-.site-header,
-.site-nav {
-    margin: 0; /* Entfernt mögliche Standardmargen */
-    font-size: larger;
-}
-
 .carousel-container {
     display: flex;
+    position: relative;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    padding: 1rem;
+    background-color: #eee;
+    margin-top: 0.5rem;
+    margin-bottom: .5rem;
+    border-radius: 5%;
+
 }
 
 .carousel-slide {
     flex: none;
-    width: 100vw; /* Vollbildbreite */
+    width: 100vw;
     scroll-snap-align: start;
     padding: 20px;
     box-sizing: border-box;
+    position: relative;
 }
 
 .quote {
-    font-size: 5.2rem;
-    color: aqua;
+    font-size: 1.2rem;
     font-style: italic;
     text-align: center;
 }
@@ -117,9 +118,46 @@ body, html {
     margin-top: 10px;
 }
 
-/* Optional: Stil für bessere Benutzererfahrung */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.left-arrow, .right-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+.first-slide .left-arrow, .last-slide .right-arrow {
+    display: none; /* Blendet den linken Pfeil im ersten Slide und den rechten Pfeil im letzten Slide aus */
+}
+
+/* Stil, um die Scrollleiste zu verbergen (optional) */
 .carousel-container::-webkit-scrollbar {
-    display: none; /* Blendet die Scrollleiste aus */
+    display: none;
+}
+
+
+.site-header,
+.site-nav {
+    margin: 0; /* Entfernt mögliche Standardmargen */
+    font-size: larger;
 }
 
 .site-nav a,
