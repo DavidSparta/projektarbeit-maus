@@ -90,6 +90,38 @@ body, html {
     font-size: larger;
 }
 
+.carousel-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.carousel-slide {
+    flex: none;
+    width: 100vw; /* Vollbildbreite */
+    scroll-snap-align: start;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.quote {
+    font-size: 5.2rem;
+    color: aqua;
+    font-style: italic;
+    text-align: center;
+}
+
+.author {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Optional: Stil für bessere Benutzererfahrung */
+.carousel-container::-webkit-scrollbar {
+    display: none; /* Blendet die Scrollleiste aus */
+}
+
 .site-nav a,
 .site-footer a{
     text-decoration: none;
@@ -129,18 +161,8 @@ body, html {
 
 .site-content { line-height: 1.5;}
 
-.site-content ul {
-    list-style-type: "\1FAF6";
-}
-
 .site-content a[href^="https"]::before {
     content:"\1F517";
-}
-
-/*Farbe kann nicht hier sondern in der Datei mit dem Attribut fill gesetzt werden*/
-.site-content img[src$=".svg"] {
-    width: 4rem;
-    height: auto;
 }
 
 @media (max-width: 350px) {
