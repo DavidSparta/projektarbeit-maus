@@ -6,37 +6,6 @@ body, html {
     height: 100%; /* Optional: Für die volle Höhe */
 }
 
-h1 {font-size: 2rem; font-weight: 500;text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);}
-h2 {font-size: 1.75rem; font-weight: 500;text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);}
-h3 {font-size: 1.5rem; font-weight: 500;text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);}
-
-/*Bild passt sich an an zur Verfügung stehenden Platz, wenn es zu groß ist für den Bildschrim*/
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-details {
-    border: 1px solid #999;
-    padding: 1rem;
-    background-color: #eee;
-}
-
-summary {
-    font-weight: bold;
-    font-size: 1.25rem;
-    cursor: pointer;
-}
-
-summary::marker {
-    content: "+\00a0"; 
-    font-weight: bold;
-}
-
-details[open] summary::marker {
-    content: "×\00a0"; /* Symbol für geöffnetes Akkordeon */
-}
-
 .header-nav-wrapper {
     background-color: rgb(233, 191, 191);
     width: 100%; /* Setzt die Breite des Wrappers auf 100% des Viewports */
@@ -46,29 +15,75 @@ details[open] summary::marker {
     display: flex; /* Behält das Flex-Layout bei */
     justify-content: space-between; /* Positioniert Header und Navigation am Anfang und Ende des Containers */
     align-items: center; /* Zentriert die Elemente vertikal */
-
-
 }
 
 .header-nav-wrapper h1 {
     padding-left: 0.5rem;
+    color: white;
     font-family: 'Dancing Script', cursive;
     width: 100%;
-    margin: ;
+    text-shadow: .25px .5px .5px;
+}
+
+.portrait-container {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.portrait {
+    max-width: 50%;
+    height: auto;
+    border-radius: 50%;
+    margin: 1rem auto;
+    display: block;
+}
+
+.info-emoji {
+    position: absolute;
+    text-align: center;
+    width: 100px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.1rem;
+}
+/* Fügen Sie hier CSS für weitere info-emoji Klassen hinzu */
+
+/* Linien von der Hauptabbildung zu den Emojis */
+
+.info-emoji-1 {
+    top: 20px;
+    right: 45px;
+}
+
+.info-emoji-2 {
+    top: 140px;
+    right: 20px;
+}
+
+.info-emoji-3 {
+    top: 280px;
+    right: 40px;
+}
+
+.info-emoji-4 {
+    top: 280px;
+    left: 50px;
+}
+
+.info-emoji-5 {
+    top: 140px;
+    left: 10px;
+}
+
+.info-emoji-6 {
+    top: 20px;
+    left: 50px;
 }
 
 .site-header,
 .site-nav {
     margin: 0; /* Entfernt mögliche Standardmargen */
     font-size: larger;
-}
-
-
-.site-footer {
-    background-color: #000000;
-    color: white;
-    padding: 1rem;
-    margin: 1rem 0;
 }
 
 .site-nav a,
@@ -107,6 +122,7 @@ details[open] summary::marker {
     font-size: larger;
     text-align: right;
     background-color: rgb(233, 191, 191);
+    padding: 1rem;
 }
 
 .site-content { line-height: 1.5;}
@@ -124,9 +140,6 @@ details[open] summary::marker {
     width: 4rem;
     height: auto;
 }
-
-/* Stellen Sie sicher, dass Links auf Mobilgeräten nicht "hover" Effekte zeigen */
-/* Rest des CSS bleibt gleich */
 
 @media (max-width: 350px) {
     .site-nav ul {
@@ -151,5 +164,6 @@ details[open] summary::marker {
         font-size: smaller; /* Kleinere Schriftgröße für den Footer-Text */
     }
 }
+
 
 
