@@ -6,6 +6,12 @@ body, html {
     height: 100%; /* Optional: Für die volle Höhe */
 }
 
+h1 {
+    font-family: 'Dancing Script', cursive;
+    position: relative;
+    text-align: center;
+}
+
 .header-nav-wrapper {
     background-color: rgb(233, 191, 191);
     width: 100%; /* Setzt die Breite des Wrappers auf 100% des Viewports */
@@ -20,79 +26,80 @@ body, html {
 .header-nav-wrapper h1 {
     padding-left: 0.5rem;
     color: white;
-    font-family: 'Dancing Script', cursive;
     width: 100%;
 }
 
-.intro {
-    margin: 1rem;
-    font-family: 'Dancing Script', cursive;
-    font-size: larger;
-    line-height: 175%;
-
+.hero-section {
+    margin-bottom:2rem;
 }
 
 .portrait-container {
     position: relative;
     text-align: center;
     width: 100%;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    background-color: #eee;
-    margin-top: .5rem;
-    margin-bottom: .5rem;
-    border-radius: 5%;
+    margin: 0;
 }
 
 .portrait {
-    max-width: 50%;
+    max-width: 48%;
     height: auto;
     border-radius: 50%;
-    margin: 1rem auto;
+    margin: auto;
     display: block;
 }
 
 .info-emoji {
     position: absolute;
     text-align: center;
-    width: 100px;
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.1rem;
-}
+    width: 107px;
+    font-size: 12pt;
+    transform: translateX(-50%); /* Zentriert die Emojis horizontal */
+    }
 
 .info-emoji-1 {
-    top: 20px;
-    right: 45px;
+    top: 5%;
+    left: 76%;
+    rotate: -20deg;
 }
 
 .info-emoji-2 {
-    top: 140px;
-    right: 20px;
+    bottom: 50%;
+    left: 85%;
 }
 
 .info-emoji-3 {
-    top: 280px;
-    right: 40px;
+    bottom: 10%;
+    left: 78%;
+    rotate: 20deg
 }
 
 .info-emoji-4 {
-    top: 280px;
-    left: 50px;
+    bottom: 20%;
+    left: 20%;
+    rotate:-20deg;
 }
 
 .info-emoji-5 {
-    top: 140px;
-    left: 10px;
+    bottom: 50%;
+    left: 13%;
 }
 
 .info-emoji-6 {
-    top: 20px;
-    left: 50px;
+    top: 16%;
+    left: 22%;
+    rotate: 20deg;
+}
+
+.intro {
+    padding: 1rem;
+    line-height: 175%;
+    background-color: #ddd;
 }
 
 .carousel-container {
     display: flex;
     position: relative;
+    text-align: center;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch
@@ -108,14 +115,17 @@ body, html {
     position: relative;
 }
 
+.author-picture {
+    max-width: 45%;
+    border-radius: 50%;
+}
+
 .quote {
     font-size: 1.2rem;
     font-style: italic;
-    text-align: center;
 }
 
-.author {
-    text-align: center;
+.author-name {
     margin-top: 10px;
 }
 
