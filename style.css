@@ -1,3 +1,10 @@
+html {
+    --theme-color: rgb(233, 191, 191);
+    --dark-background-color: #ddd;
+    --light-background-color: #fff;
+    --light-font-color:#fff; 
+}
+
 body, html {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0; /* Entfernt den Standard-Margin des Body und HTML Elements */
@@ -10,10 +17,12 @@ h1 {
     font-family: 'Dancing Script', cursive;
     position: relative;
     text-align: center;
+    margin-bottom: 0.75rem;
+    margin-top: 0.75rem;
 }
 
 .header-nav-wrapper {
-    background-color: rgb(233, 191, 191);
+    background-color: var(--theme-color);
     width: 100%; /* Setzt die Breite des Wrappers auf 100% des Viewports */
     margin: 0; /* Entfernt jegliche Margin */
     padding: 0; /* Entfernt jegliche Padding */
@@ -21,12 +30,52 @@ h1 {
     display: flex; /* Behält das Flex-Layout bei */
     justify-content: space-between; /* Positioniert Header und Navigation am Anfang und Ende des Containers */
     align-items: center; /* Zentriert die Elemente vertikal */
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 6px #ddd;
 }
 
 .header-nav-wrapper h1 {
     padding-left: 0.5rem;
-    color: white;
     width: 100%;
+}
+.site-header,
+.site-nav {
+    margin: 0; /* Entfernt mögliche Standardmargen */
+}
+
+.site-nav a,
+.site-footer a{
+    text-decoration: none;
+    background-color: var(--light-background-color); /* Heller Hintergrund */
+    padding: 10px 15px; /* Große Berührungsflächen */
+    margin: 0 5px; /* Etwas Abstand zwischen den Links */
+    border-radius: 5px; /* Abgerundete Ecken */
+    display: inline-block; /* Ermöglicht das Setzen von Padding und Margin */
+    transition: background-color 0.3s ease; /* Glatte Farbübergänge */
+}
+.site-nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.site-nav li {
+    display: inline;
+    padding: 0 10px;
+}
+
+.site-nav a:focus,
+.site-nav a.active {
+    background-color: var(--dark-background-color);
+}
+
+.site-footer {
+    text-align: right;
+    background-color: var(--theme-color);
+    padding: .5rem;
 }
 
 .hero-section {
@@ -93,7 +142,8 @@ h1 {
 .intro {
     padding: 1rem;
     line-height: 175%;
-    background-color: #ddd;
+    background-color: var(--dark-background-color);
+
 }
 
 .carousel-container {
@@ -139,7 +189,7 @@ h1 {
 }
 
 .left-arrow, .right-arrow {
-    color: #bbb;
+    color: var(--dark-background-color);
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -165,56 +215,9 @@ h1 {
     display: none;
 }
 
-
-.site-header,
-.site-nav {
-    margin: 0; /* Entfernt mögliche Standardmargen */
-    font-size: larger;
-}
-
-.site-nav a,
-.site-footer a{
-    text-decoration: none;
-    color: #333; /* Dunkle Schriftfarbe für besseren Kontrast */
-    background-color: #f8f8f8; /* Heller Hintergrund */
-    padding: 10px 15px; /* Große Berührungsflächen */
-    margin: 0 5px; /* Etwas Abstand zwischen den Links */
-    border-radius: 5px; /* Abgerundete Ecken */
-    display: inline-block; /* Ermöglicht das Setzen von Padding und Margin */
-    transition: background-color 0.3s ease; /* Glatte Farbübergänge */
-}
-.site-nav ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.site-nav li {
-    display: inline;
-    padding: 0 10px;
-}
-
-.site-nav a:focus,
-.site-nav a.active {
-    background-color: #ddd;
-}
-
-
-.site-footer {
-    font-size: larger;
-    text-align: right;
-    background-color: rgb(233, 191, 191);
-    padding: 1rem;
-}
-
 .site-content { line-height: 1.5;}
 
-.site-content a[href^="https"]::before {
-    content:"\1F517";
-}
-
-@media (max-width: 350px) {
+@media (max-width: 400px) {
     .site-nav ul {
         flex-direction: column; /* Ändert die Flex-Richtung zu einer Spalte für mobile Ansicht */
     }
@@ -228,15 +231,12 @@ h1 {
         text-align: center; /* Zentriert den Linktext */
         margin: 5px 0; /* Fügt vertikalen Abstand zwischen den Links hinzu */
     }
-
-    .site-footer {
-        display: flex; /* Verwendet Flexbox für den Footer */
-        justify-content: flex-end; /* Schiebt den Inhalt nach rechts */
-        padding: 1rem; /* Einheitliches Padding */
-        margin: 0; /* Entfernt den Margin */
-        font-size: smaller; /* Kleinere Schriftgröße für den Footer-Text */
-    }
 }
 
-
+@media (min-width: 768px) {
+    html {font-size: 1.125rem;}
+}
+@media (min-width: 1280px) {
+    html {font-size: 1.25rem;}
+}
 
