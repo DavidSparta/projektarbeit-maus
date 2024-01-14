@@ -1,5 +1,5 @@
 html {
-    --theme-color: rgb(233, 191, 191);
+    --theme-color: rgb(192, 73, 73);
     --dark-background-color: #ddd;
     --light-background-color: #fff;
     --light-font-color:#fff; 
@@ -38,6 +38,7 @@ h1 {
 
 .header-nav-wrapper h1 {
     padding-left: 0.5rem;
+    color: var(--light-font-color);
     width: 100%;
 }
 .site-header,
@@ -73,9 +74,13 @@ h1 {
 }
 
 .site-footer {
-    text-align: right;
     background-color: var(--theme-color);
     padding: .5rem;
+    text-align: right;
+}
+
+.footer-links :last-child {
+    margin-left: auto;
 }
 
 .hero-section {
@@ -216,6 +221,79 @@ h1 {
 }
 
 .site-content { line-height: 1.5;}
+
+.timeline {
+    position: relative;
+    width: 100%;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 4px;
+    background-color: #333;
+    top: 0;
+    bottom: 0;
+}
+
+.timeline-block {
+    position: relative;
+    width: 50%;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+.timeline-block .timeline-icon {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 24px;
+}
+
+.left .timeline-icon {
+    left: calc(50% - 30px);
+}
+
+.right .timeline-icon {
+    right: calc(50% - 30px);
+}
+
+.timeline-content {
+    padding: 5px 10px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+.left .timeline-content {
+    margin-left: 0;
+}
+
+.right .timeline-content {
+    margin-right: 0;
+}
+
+.date {
+    font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+    .timeline-block {
+        width: 100%;
+    }
+
+    .left .timeline-icon, .right .timeline-icon {
+        left: 10px; /* oder ein anderer Wert, um auf kleinen Bildschirmen zu justieren */
+    }
+
+    .right .timeline-content {
+        margin-left: 0;
+    }
+}
 
 @media (max-width: 400px) {
     .site-nav ul {
