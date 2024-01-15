@@ -244,11 +244,12 @@ h1 {
     box-sizing: border-box;
 }
 
+
 .timeline-block .timeline-icon {
     position: absolute;
     width: 30px;
     height: 30px;
-    background-color: #fff;
+    background-color: var(--dark-background-color);
     border-radius: 50%;
     text-align: center;
     line-height: 30px;
@@ -257,6 +258,7 @@ h1 {
 
 .left .timeline-icon {
     left: calc(50% - 30px);
+    padding-top: .2rem;
 }
 
 .right .timeline-icon {
@@ -265,8 +267,8 @@ h1 {
 
 .timeline-content {
     padding: 5px 10px;
-    background-color: #f9f9f9;
-    border-radius: 4px;
+    background-color: var(--dark-background-color);
+    border-radius: 10px;
 }
 
 .left .timeline-content {
@@ -287,7 +289,7 @@ h1 {
     }
 
     .left .timeline-icon, .right .timeline-icon {
-        left: 10px; /* oder ein anderer Wert, um auf kleinen Bildschirmen zu justieren */
+        left: calc(50% - 10px); /* oder ein anderer Wert, um auf kleinen Bildschirmen zu justieren */
     }
 
     .right .timeline-content {
