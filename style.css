@@ -220,11 +220,35 @@ h1 {
     display: none;
 }
 
+.carousel-indicators {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 0 5px;
+}
+
+.indicator.active {
+    background-color: #333;
+}
+
+
 .site-content { line-height: 1.5;}
+ 
 
 .timeline {
     position: relative;
     width: 100%;
+}
+
+.timeline-block:nth-child(even) {
+    margin-left: auto;
 }
 
 .timeline::before {
@@ -256,13 +280,9 @@ h1 {
     font-size: 24px;
 }
 
-.left .timeline-icon {
-    left: calc(50% - 30px);
+.timeline-icon {
+    left: calc(50%);
     padding-top: .2rem;
-}
-
-.right .timeline-icon {
-    right: calc(50% - 30px);
 }
 
 .timeline-content {
@@ -313,9 +333,6 @@ h1 {
     }
 }
 
-@media (min-width: 768px) {
-    html {font-size: 1.125rem;}
-}
 @media (min-width: 1280px) {
     html {font-size: 1.25rem;}
 }
