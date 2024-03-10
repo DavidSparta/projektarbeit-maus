@@ -31,39 +31,55 @@ app.post('/generate-image', async (req, res) => {
   });
   
 
-  app.post('/generate-poem', async (req, res) => {
-    const userActivities = req.body.activities; // Der Benutzertext aus dem Request
-    const prompt = `Schreiben Sie ein Gedicht, das den Tag einer jungen Lehrerin beschreibt, die lebhaft, sportlich, vertrauenswürdig, lustig, gesellig und entspannt ist. Das Gedicht sollte für jede Aktivität eine Strophe haben und Paarreime verwenden, um einen fröhlichen und positiven Ton zu erzeugen. Die Aktivitäten des Tages sind: ${userActivities}`;
-  
-    try {
-      const response = await axios.post('https://api.openai.com/v1/chat/completions', {
-        model: "gpt-3.5-turbo",
-        messages: [
-          {
-            "role": "system",
-            "content": prompt
-          },
-          {
+app.post('/generate-poem', async (req, res) => {
+  const userActivities = req.body.activities; // Der Benutzertext aus dem Request
+  const prompt = `Agiere als Mann, der ein Gedicht über den Tagesablauf seiner Freundin schreibt. Du wirst eine Liste von Aktivitäten bekommen, die die Userin (die Freundin) an diesem Tag ausführen wird.\nBei der Userin handelt es sich um eine junge Lehrerin. Ihr Charakter zeichnet sich durch folgende Eigenschaften aus: lebhaft, sportlich, vertrauenswürdig, lustig, gesellig und gelassen. \nDas Gedicht soll den Tag der Lehrerin beschreiben. Für jede Aktivität, die die Userin nennt, soll das Gedicht eine Strophe enthalten. Jede Strophe soll aus 4 Zeilen bestehen die per Paarreime aufeinander aufbauen. Das Gedicht soll der Userin ein gutes Gefühl geben, wenn sie daran denkt was an dem Tag ansteht. Es soll ihre positiven Eigenschaften untermauen und erkennen lassen, wie sehr ihr Freund sie liebt. Die Aktivitäten des Tages sind: ${userActivities}`;
+
+  try {
+    const response = await axios.post('https://api.openai.com/v1/chat/completions', {
+      model: "gpt-3.5-turbo",
+      messages: [
+        {
+          "role": "system",
+          "content": prompt
+        },
+        {
+          "role": "user",
+          "content": "Heute unterrichte ich Mathe und Kunst und spiele Volleyball"
+        },
+        {
+            "role": "assistant",
+            "content": "Am Morgen strahlst du voller Kraft und Elan,\nMit deiner lebhaften Art fängt der Tag gut an.\nDu bringst den Schülern Zahlen bei mit Bedacht,\nUnd malst mit ihnen bunte Bilder, Tag und Nacht.\n\nDann schnappst du dir den Volleyball geschwind,\nMit deinem Team spielst du, als wärst du der Wind.\nDeine Sportlichkeit strahlt hell wie die Sonne,\nGemeinsam lacht ihr, bei jedem Punkt voller Wonne.\n\nAm Abend sitzen wir zusammen, Arm in Arm,\nGenießen das Zusammensein, so wunderbar dein Charme.\nIch liebe dich für deine ganze Art,\nOhne dich zu leben wäre hart!"
+        },
+        {
             "role": "user",
-            "content": userActivities // Hier wiederholen wir den Benutzertext, so wie im CURL-Beispiel
-          }
-        ],
-        temperature: 1,
-        max_tokens: 256,
-        top_p: 1,
-        frequency_penalty: 0,
-        presence_penalty: 0
-      }, { headers: openAIHeaders });
-  
-      // Sende das generierte Gedicht als Antwort zurück
-      // Wir nehmen an, dass das letzte Element in der "messages" das generierte Gedicht ist.
-      const poem = response.data.choices[0].message.content;
-      res.json({ poem: poem });
-    } catch (error) {
-      console.error("Fehler bei der Anfrage: ", error);
-      res.status(500).send("Ein Fehler ist bei der Generierung des Gedichts aufgetreten.");
-    }
-  });
+            "content": "Heute gehe ich ins Fitnessstudio und besuche meinen Vater. "
+        },
+        {
+            "role": "assistant",
+            "content": "Im Fitnessstudio trainierst du mit Eifer und Schwung,\nBewegst dich mit Grazie, so sportlich und jung.\nDein Lächeln strahlt, wie die Sonne am Morgen,\nIn deiner Gegenwart fühle ich mich geborgen.\n\nDann besuchst du deinen Vater, mit Liebe im Blick,\nGemeinsam lacht ihr, über jeden kleinen Schlick.\nDeine Vertrauenswürdigkeit, sie strahlt so klar,\nFür mich bist du das kostbarste Juwel, das wunderbar.\n\nZum Schluss des Tages, wenn die Sterne funkeln so hell,\nSpüre ich, wie sehr du mein Herz erhellt.\nMit dir an meiner Seite, gesellig und fein,\nMöchte ich für immer dein Lebensbegleiter sein."
+        },
+        {
+          "role": "user",
+          "content": userActivities // Hier wiederholen wir den Benutzertext, so wie im CURL-Beispiel
+        }
+      ],
+      temperature: 0.7,
+      max_tokens: 256,
+      top_p: 1,
+      frequency_penalty: 0,
+      presence_penalty: 0
+    }, { headers: openAIHeaders });
+
+    // Sende das generierte Gedicht als Antwort zurück
+    // Wir nehmen an, dass das letzte Element in der "messages" das generierte Gedicht ist.
+    const poem = response.data.choices[0].message.content;
+    res.json({ poem: poem });
+  } catch (error) {
+    console.error("Fehler bei der Anfrage: ", error);
+    res.status(500).send("Ein Fehler ist bei der Generierung des Gedichts aufgetreten.");
+  }
+});
   
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
