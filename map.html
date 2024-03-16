@@ -13,11 +13,17 @@
 
 </head>
 <body>
-    <form id="plansForm" action="/submit-plans" method="POST">
-        <label for="zahl1">Was machst du heute?</label><br>
-        <input type="number" id="zahl1"> <br><br>
-        <button type="submit">Abschicken</button>
-    </form>
+    <div id="content">
+        <p id="instruction">Was hast du für heute geplant?</p>
+        <div id="results">
+            <img id="generatedImage" src="" alt="Generiertes Bild" hidden>
+            <p id="generatedPoem" hidden></p>
+        </div>
+        <div id="inputArea">
+            <input type="text" id="userActivities" placeholder="Deine Aktivitäten">
+            <button onclick="generateContent()">Generieren</button>
+        </div>
+    </div>
 
-</body>
+    <script src="script.js"></script>
 </html>

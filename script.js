@@ -9,67 +9,58 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-//Karussel 
+//Backendintegration für Gedicht- und Bildgenerierung
 document.addEventListener('DOMContentLoaded', function() {
-    const slides = document.querySelectorAll('.carousel-slide');
-    const indicatorsContainer = document.querySelector('.carousel-indicators');
-    let currentIndex = 0;
+    const generateButton = document.querySelector('button');
+    const activitiesInput = document.getElementById('userActivities');
+    const generatedImage = document.getElementById('generatedImage');
+    const generatedPoem = document.getElementById('generatedPoem');
+    const instructionText = document.getElementById('instruction');
 
-    // Funktion zum Initialisieren der Indikatoren
-    function initIndicators() {
-        slides.forEach((_, index) => {
-            const indicator = document.createElement('span');
-            indicator.classList.add('indicator');
-            if (index === currentIndex) indicator.classList.add('active');
-            indicatorsContainer.appendChild(indicator);
-            indicator.addEventListener('click', () => goToSlide(index));
-        });
+    generateButton.addEventListener('click', function() {
+        const activities = activitiesInput.value.trim();
+        if (!activities) {
+            alert('Bitte gib deine geplanten Aktivitäten ein.');
+            return;
+        }
+
+        // Ladeanzeige einblenden
+        instructionText.textContent = 'Lädt...';
+        generatedImage.hidden = true;
+        generatedPoem.hidden = true;
+
+        generateContent(activities);
+    });
+
+    async function generateContent(activities) {
+        try {
+            // Sende parallele Anfragen für Bild und Gedicht
+            const imageResponse = await fetch('http://localhost:3000/generate-image', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ activities }),
+            });
+
+            const poemResponse = await fetch('http://localhost:3000/generate-poem', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ activities }),
+            });
+
+            // Warte auf beide Antworten
+            const imageData = await imageResponse.json();
+            const poemData = await poemResponse.json();
+
+            // Ergebnisse anzeigen
+            generatedImage.src = imageData.imageUrl;
+            generatedImage.hidden = false;
+            generatedPoem.textContent = poemData.poem;
+            generatedPoem.hidden = false;
+            instructionText.textContent = 'Was hast du für heute geplant?';
+        } catch (error) {
+            console.error('Fehler beim Generieren der Inhalte:', error);
+            instructionText.textContent = 'Ein Fehler ist aufgetreten. Bitte versuche es später erneut.';
+        }
     }
-
-    // Funktion zum Aktualisieren der aktiven Indikator-Anzeige
-    function updateIndicators() {
-        document.querySelectorAll('.indicator').forEach((indicator, index) => {
-            if (index === currentIndex) {
-                indicator.classList.add('active');
-            } else {
-                indicator.classList.remove('active');
-            }
-        });
-    }
-
-    // Funktion zum Wechseln der Slides
-    function goToSlide(index) {
-        const width = document.querySelector('.carousel-container').offsetWidth;
-        document.querySelector('.carousel-container').scrollLeft = width * index;
-        currentIndex = index;
-        updateIndicators();
-    }
-
-    // Funktion zum Implementieren des endlosen Wischens
-    function setupSwipe() {
-        let startX, endX;
-        document.querySelector('.carousel-container').addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-        });
-
-        document.querySelector('.carousel-container').addEventListener('touchmove', (e) => {
-            endX = e.touches[0].clientX;
-        });
-
-        document.querySelector('.carousel-container').addEventListener('touchend', () => {
-            if (startX - endX > 50) {
-                // Wischen nach links
-                const nextIndex = (currentIndex + 1) % slides.length;
-                goToSlide(nextIndex);
-            } else if (startX - endX < -50) {
-                // Wischen nach rechts
-                const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
-                goToSlide(prevIndex);
-            }
-        });
-    }
-
-    initIndicators();
-    setupSwipe();
 });
 

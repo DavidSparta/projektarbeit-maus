@@ -1,11 +1,13 @@
 require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
+const cors = require('cors'); // CORS importieren
 
 const app = express();
 const port = 3000;
 
 app.use(express.json());
+app.use(cors()); // CORS als Middleware verwenden, um CORS-Header zu allen Antworten hinzuzufügen
 
 const openAIHeaders = {
   'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
@@ -48,26 +50,34 @@ app.post('/generate-poem', async (req, res) => {
         },
         {
           "role": "user",
-          "content": "Heute unterrichte ich Mathe und Kunst und spiele Volleyball"
+          "content": "Mathe und Religion unterrichten & abends spiele ich Beachvolleyball"
         },
         {
-            "role": "assistant",
-            "content": "Am Morgen strahlst du voller Kraft und Elan,\nMit deiner lebhaften Art fängt der Tag gut an.\nDu bringst den Schülern Zahlen bei mit Bedacht,\nUnd malst mit ihnen bunte Bilder, Tag und Nacht.\n\nDann schnappst du dir den Volleyball geschwind,\nMit deinem Team spielst du, als wärst du der Wind.\nDeine Sportlichkeit strahlt hell wie die Sonne,\nGemeinsam lacht ihr, bei jedem Punkt voller Wonne.\n\nAm Abend sitzen wir zusammen, Arm in Arm,\nGenießen das Zusammensein, so wunderbar dein Charme.\nIch liebe dich für deine ganze Art,\nOhne dich zu leben wäre hart!"
+          "role": "assistant",
+          "content": "Im Morgengrauen, wenn der Tag erwacht,\nlehrt sie Mathe mit erstaunlicher Macht.\nIn Religion, mit Güte und Verstand,\nführt sie ihre Schüler an Gottes Hand.\n\nNachmittags, wenn die Schule ist vorbei,\nist sie noch lange nicht frei.\nMit Volleyball, im Sand so fein,\nihre sportliche Seite, niemand bekommt sie klein. \n\nSie springt und schlägt, mit Kraft und Mut,\ndie Gegner sind schon auf der Hut.\nDoch nach dem Spiel, in der geselligen Runde,\nerfüllt ihr Lachen jede Stunde.\n\nMeine Liebe, so lebhaft und gelassen,\ndu wirst mein Herz niemals verlassen.\nMit jedem Tag, in jeder Stund,\nwächst meine Liebe, so tief und rund."
         },
         {
-            "role": "user",
-            "content": "Heute gehe ich ins Fitnessstudio und besuche meinen Vater. "
+          "role": "user",
+          "content": "Geburtstagsbrunch bei meiner besten Freundin und trainieren im Fitnessstudio"
         },
         {
-            "role": "assistant",
-            "content": "Im Fitnessstudio trainierst du mit Eifer und Schwung,\nBewegst dich mit Grazie, so sportlich und jung.\nDein Lächeln strahlt, wie die Sonne am Morgen,\nIn deiner Gegenwart fühle ich mich geborgen.\n\nDann besuchst du deinen Vater, mit Liebe im Blick,\nGemeinsam lacht ihr, über jeden kleinen Schlick.\nDeine Vertrauenswürdigkeit, sie strahlt so klar,\nFür mich bist du das kostbarste Juwel, das wunderbar.\n\nZum Schluss des Tages, wenn die Sterne funkeln so hell,\nSpüre ich, wie sehr du mein Herz erhellt.\nMit dir an meiner Seite, gesellig und fein,\nMöchte ich für immer dein Lebensbegleiter sein."
+          "role": "assistant",
+          "content": "In der Früh, wenn der Tag beginnt,\nsie zu ihrer Freundin hinrennt.\nMit Lachen, Freude, voller Glück,\nfeiern sie den Geburtstag, Stück für Stück.\n\nSie teilen Erinnerungen, lachen und weinen,\nsind da füreinander, in guten und schlechten Zeiten.\nSie sind mehr als Freunde, sie sind wie Schwestern,\nübereinander würden sie niemals lästern.\n\nDann ins Fitnessstudio, mit sportlichem Eifer,\nmacht sie ihre Übungen, immer heiter.\nMit Gewichten, Laufen, sie gibt nicht auf,\nihre Ausdauer kennt keinen Verlauf.\n\nSo endet der Tag, mit Schweiß und Lachen,\nsie hat es geschafft, alles zu machen.\nMeine Liebe, so stark und wahr,\ndu bist mein Licht, das ist doch klar!"
+        },
+        {
+          "role": "user",
+          "content": "Ausschlafen und dann in den Urlaub nach Spanien fliegen"
+        },
+        {
+          "role": "assistant",
+          "content": "Am Morgen, wenn der Tag erwacht,\nbleibt sie im Bett, ganz unbeschwert und lacht.\nSie träumt und ruht, ganz ohne Sorgen,\nfreut sich auf den neuen Morgen.\n\nDann packt sie ihre Sachen, mit einem Lachen,\nbereit, neue Abenteuer zu machen.\nSie fliegt nach Spanien, ins Land der Sonne,\nihre Augen strahlen, voller Wonne.\n\nAm Strand, mit Sand zwischen den Zehen,\nlässt sie die Seele baumeln, das Meer zu sehen.\nDie Wellen rauschen, der Himmel so weit,\nsie genießt die Ruhe, die Freiheit, die Zeit.\n\nMeine Liebe, so frei und ungebunden,\ndu bist das Glück, das ich gefunden.\nMit jedem Tag, in jedem Augenblick,\nliebe ich dich mehr, Stück für Stück."
         },
         {
           "role": "user",
           "content": userActivities // Hier wiederholen wir den Benutzertext, so wie im CURL-Beispiel
         }
       ],
-      temperature: 0.7,
+      temperature: 0.5,
       max_tokens: 256,
       top_p: 1,
       frequency_penalty: 0,

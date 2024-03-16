@@ -220,25 +220,6 @@ h1 {
     display: none;
 }
 
-.carousel-indicators {
-    text-align: center;
-    padding: 10px 0;
-}
-
-.indicator {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #ccc;
-    margin: 0 5px;
-}
-
-.indicator.active {
-    background-color: #333;
-}
-
-
 .site-content { line-height: 1.5;}
  
 
@@ -302,6 +283,45 @@ h1 {
 .date {
     font-weight: bold;
 }
+
+#content {
+    text-align: center;
+    width: 90%;
+}
+
+#inputArea {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+#userActivities {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+#results {
+    min-height: 200px; /* Just for demonstration */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#generatedImage {
+    max-width: 90vw;
+    max-height: 300px;
+    margin-bottom: 20px;
+}
+
+#instruction, #generatedPoem {
+    margin: 20px 0;
+}
+
 
 @media screen and (max-width: 600px) {
     .timeline-block {
