@@ -35,13 +35,13 @@ document.addEventListener('DOMContentLoaded', function() {
     async function generateContent(activities) {
         try {
             // Sende parallele Anfragen für Bild und Gedicht
-            const imageResponse = await fetch('http://localhost:3000/generate-image', {
+            const imageResponse = await fetch('http://192.168.178.31:3000/generate-image', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ activities }),
             });
 
-            const poemResponse = await fetch('http://localhost:3000/generate-poem', {
+            const poemResponse = await fetch('http://192.168.178.31:3000/generate-poem', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ activities }),
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
             generatedImage.hidden = false;
             generatedPoem.textContent = poemData.poem;
             generatedPoem.hidden = false;
-            instructionText.textContent = 'Was hast du für heute geplant?';
+            instructionText.hidden = true; // Diese Zeile hinzugefügt
         } catch (error) {
             console.error('Fehler beim Generieren der Inhalte:', error);
             instructionText.textContent = 'Ein Fehler ist aufgetreten. Bitte versuche es später erneut.';

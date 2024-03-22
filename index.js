@@ -9,6 +9,9 @@ const port = 3000;
 app.use(express.json());
 app.use(cors()); // CORS als Middleware verwenden, um CORS-Header zu allen Antworten hinzuzufügen
 
+// Middleware, um statische Dateien aus dem 'public'-Ordner zu bedienen
+app.use(express.static('projektarbeit-maus'));
+
 const openAIHeaders = {
   'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
   'Content-Type': 'application/json'
@@ -17,7 +20,7 @@ const openAIHeaders = {
 app.post('/generate-image', async (req, res) => {
     const userActivities = req.body.activities; // Hier wird der Benutzertext aus dem Request aufgenommen
     const prompt = `Erstelle einen kleinen Comic, der das lebendige Leben einer 29-jährigen, gutaussehenden Frau westeuropäischen Typs mit langen dunkelbraunen Haaren, grün-braunen Augen und einer sportlichen Figur, darstellt. In dem Comic führt sie folgende Aktivitäten aus: 
-     ${userActivities}. Der Comic soll aus 4 Paneln bestehen und enthält keinerlei Schrift. Die Frau arbeitet als Lehrerin an einer Mädchenschule. Dort ist sie stets schick gekleidet mit einen Blazer, goldenen Ohrringen und einer feinen goldenen Kette. 
+     ${userActivities}. Der Comic soll aus 4 Paneln bestehen und enthält keinerlei Schrift. Die Frau arbeitet als Lehrerin an einer Mädchenschule. Dort ist sie stets schick gekleidet mit einen Blazer, goldenen Ohrringen, einer feinen goldenen Kette und einer rosefarbenen Smartwatch. 
     Die Frau ist bekannt für ihre lebensfrohe, vertrauenserweckende und positive Ausstrahlung. Der Comic soll die Aktivitäten fröhlich darstellen.`;
   
     try {
@@ -94,6 +97,7 @@ app.post('/generate-poem', async (req, res) => {
   }
 });
   
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
   console.log(`Server is running on port ${port}`);
 });
+

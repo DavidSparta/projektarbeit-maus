@@ -13,17 +13,30 @@
 
 </head>
 <body>
+    <div class="header-nav-wrapper">
+        <header class="site-header">
+            <h1>Alessandra</h1>
+        </header>
+    
+        <nav class="site-nav">
+            <ul>
+                <li><a href="start.html">&#127968;</a></li>
+                <li><a class="active" href="yourday.html">&#128302;</a></li>
+                <li><a href="timeline.html">&#128197;</a></li>
+            </ul>
+        </nav>
+    </div>
     <div id="content">
-        <p id="instruction">Was hast du für heute geplant?</p>
+        <p id="instruction">Was hast du heute geplant?<br><br>Gib unten ein, was du heute machst und lass dich überraschen was passiert.<br/>&#10024;</i><br><br><br><br></p>
         <div id="results">
             <img id="generatedImage" src="" alt="Generiertes Bild" hidden>
             <p id="generatedPoem" hidden></p>
         </div>
         <div id="inputArea">
-            <input type="text" id="userActivities" placeholder="Deine Aktivitäten">
-            <button onclick="generateContent()">Generieren</button>
+            <input type="text" id="userActivities" placeholder="Deine Pläne für den Tag...">
+            <button onclick="generateContent()"><i class="fa-solid fa-paper-plane"></i></button>
         </div>
     </div>
-
-    <script src="script.js"></script>
+    <script src="script.js"></script>    
+</body>
 </html>

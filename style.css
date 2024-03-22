@@ -13,6 +13,13 @@ body, html {
     height: 100%; /* Optional: Für die volle Höhe */
 }
 
+body {
+    display: flex; /* Aktiviert Flexbox */
+    flex-direction: column; /* Ordnet die Kinder (header-nav-wrapper und content) in einer Spalte an */
+
+}
+
+
 h1 {
     font-family: 'Dancing Script', cursive;
     position: relative;
@@ -285,18 +292,45 @@ h1 {
 }
 
 #content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    width: 90%;
+    width: 100%;
+    background-color: var(--dark-background-color);
+    flex-grow: 1; /* Erlaubt dem content-Element, den verbleibenden Platz einzunehmen */
+    overflow-y: auto; /* Fügt einen Scrollbalken hinzu, falls der Inhalt länger als der Bildschirm ist */
 }
 
 #inputArea {
     position: fixed;
-    bottom: 0;
+    bottom: 2%;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     justify-content: space-between;
     width: 90%;
+}
+
+#inputArea input, #inputArea button {
+    padding: 10px 15px; /* Gibt Input und Button ein angenehmes Padding */
+    font-size: 16px; /* Legt eine passende Schriftgröße fest */
+    border: 2px solid var(--theme-color);
+    border-radius: 5px; /* Rundet die Ecken für ein modernes Aussehen */
+    margin: 10px 0; /* Fügt etwas Abstand oben und unten hinzu */
+}
+
+#inputArea input {
+    flex-grow: 1; /* Ermöglicht, dass das Input-Feld den verfügbaren Platz einnimmt */
+    margin-right: 10px; /* Fügt einen rechten Abstand zum Button hinzu */
+    border-right-width: 5px; /* Verstärkt den rechten Rand, um eine visuelle Trennung zu betonen */
+}
+
+#inputArea button {
+    background-color: var(--theme-color);/* Blaue Hintergrundfarbe */
+    color: white; /* Weiße Schriftfarbe */
+    cursor: pointer; /* Verändert den Cursor, um Klickbarkeit anzudeuten */
+    border-color: #444; /* Dunklerer Rand für den Button für einen 3D-Effekt */
 }
 
 #userActivities {
@@ -313,13 +347,22 @@ h1 {
 }
 
 #generatedImage {
-    max-width: 90vw;
-    max-height: 300px;
-    margin-bottom: 20px;
+    width: auto; /* Passt die Breite des Bildes automatisch an, um das Seitenverhältnis zu bewahren */
+    max-height: 35vh; /* Beschränkt die maximale Höhe des Bildes auf ein Drittel der Bildschirmhöhe */
+    height: auto; /* Passt die Höhe automatisch an, um das Seitenverhältnis zu bewahren */
+    max-width: 95vw; /* Stellt sicher, dass das Bild maximal 95% der Bildschirmbreite einnimmt */
+    margin: 20px auto; /* Zentriert das Bild horizontal und fügt einen Abstand oben und unten hinzu */
 }
+
 
 #instruction, #generatedPoem {
     margin: 20px 0;
+    padding: 0.5rem;
+;
+}
+
+#instruction {
+    font-size: 20pt;
 }
 
 
