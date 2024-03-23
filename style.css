@@ -160,21 +160,25 @@ h1 {
 
 .carousel-container {
     display: flex;
-    position: relative;
+    flex-direction: row;
+    align-items: center;
     text-align: center;
-    overflow-x: auto;
+    overflow-x: hidden;
     scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch
-
+    -webkit-overflow-scrolling: touch;
 }
 
 .carousel-slide {
-    flex: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
     scroll-snap-align: start;
     padding: 20px;
     box-sizing: border-box;
-    position: relative;
+    position: relative; /* Fügt relative Positionierung hinzu */
+    flex-shrink: 0;
 }
 
 .author-picture {
@@ -191,17 +195,8 @@ h1 {
     margin-top: 10px;
 }
 
-.carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    cursor: pointer;
-    z-index: 1000;
-}
-
 .left-arrow, .right-arrow {
-    color: var(--dark-background-color);
+    color: var(--dark-background-color); 
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -218,14 +213,11 @@ h1 {
     right: 10px;
 }
 
-.first-slide .left-arrow, .last-slide .right-arrow {
-    display: none; /* Blendet den linken Pfeil im ersten Slide und den rechten Pfeil im letzten Slide aus */
-}
-
 /* Stil, um die Scrollleiste zu verbergen (optional) */
 .carousel-container::-webkit-scrollbar {
     display: none;
 }
+
 
 .site-content { line-height: 1.5;}
  
