@@ -1,5 +1,5 @@
 html {
-    --theme-color: rgb(192, 73, 73);
+    --theme-color: rgb(45, 45, 45);
     --dark-background-color: #ddd;
     --light-background-color: #fff;
     --light-font-color:#fff; 
@@ -10,7 +10,6 @@ body, html {
     margin: 0; /* Entfernt den Standard-Margin des Body und HTML Elements */
     padding: 0; /* Entfernt das Standard-Padding */
     width: 100%; /* Stellt sicher, dass der Body und HTML Elemente die volle Breite einnehmen */
-    height: 100%; /* Optional: Für die volle Höhe */
 }
 
 body {
@@ -28,6 +27,12 @@ h1 {
     margin-top: 0.75rem;
 }
 
+.logo {
+    width: 40px;
+    padding: 10px;
+
+}
+
 .header-nav-wrapper {
     background-color: var(--theme-color);
     width: 100%; /* Setzt die Breite des Wrappers auf 100% des Viewports */
@@ -39,7 +44,7 @@ h1 {
     align-items: center; /* Zentriert die Elemente vertikal */
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 1000;
     box-shadow: 0 2px 6px #ddd;
 }
 
@@ -56,12 +61,13 @@ h1 {
 .site-nav a,
 .site-footer a{
     text-decoration: none;
-    background-color: var(--light-background-color); /* Heller Hintergrund */
-    padding: 10px 15px; /* Große Berührungsflächen */
-    margin: 0 5px; /* Etwas Abstand zwischen den Links */
-    border-radius: 5px; /* Abgerundete Ecken */
+    color: #ddd;
+    padding: 5px 8px; /* Große Berührungsflächen */
+    margin: 0 5px; /* Etwas Abstand zwischen den Links *//
     display: inline-block; /* Ermöglicht das Setzen von Padding und Margin */
     transition: background-color 0.3s ease; /* Glatte Farbübergänge */
+    font-size: 16pt;
+    
 }
 .site-nav ul {
     display: flex;
@@ -77,13 +83,18 @@ h1 {
 
 .site-nav a:focus,
 .site-nav a.active {
-    background-color: var(--dark-background-color);
+    color: rgb(16, 195, 227);
 }
 
 .site-footer {
     background-color: var(--theme-color);
-    padding: .5rem;
+    padding: .1rem;
     text-align: right;
+}
+
+.site-footer p {
+    color: #ddd;
+    padding-right: 20px;
 }
 
 .footer-links :last-child {
@@ -207,7 +218,7 @@ h1 {
     transform: translateY(-50%);
     font-size: 2rem;
     cursor: pointer;
-    z-index: 1000;
+    z-index: 100;
 }
 
 .left-arrow {
