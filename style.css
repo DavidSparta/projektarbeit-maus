@@ -20,7 +20,6 @@ body {
 
 
 h1 {
-    font-family: 'Dancing Script', cursive;
     position: relative;
     text-align: center;
     margin-bottom: 0.75rem;
@@ -83,7 +82,11 @@ h1 {
 
 .site-nav a:focus,
 .site-nav a.active {
-    color: rgb(16, 195, 227);
+    
+    border: solid;
+    border-width: 2pt;
+    border-color: var(--dark-background-color);
+    border-radius: 40%;
 }
 
 .site-footer {
