@@ -12,13 +12,6 @@ body, html {
     width: 100%; /* Stellt sicher, dass der Body und HTML Elemente die volle Breite einnehmen */
 }
 
-body {
-    display: flex; /* Aktiviert Flexbox */
-    flex-direction: column; /* Ordnet die Kinder (header-nav-wrapper und content) in einer Spalte an */
-
-}
-
-
 h1 {
     position: relative;
     text-align: center;
@@ -84,9 +77,10 @@ h1 {
 .site-nav a.active {
     
     border: solid;
-    border-width: 2pt;
-    border-color: var(--dark-background-color);
-    border-radius: 40%;
+    border-width: 1pt;
+    border-color: aqua;
+    color: aqua;
+    border-radius: 30%;
 }
 
 .site-footer {
@@ -237,69 +231,114 @@ h1 {
     display: none;
 }
 
-
 .site-content { line-height: 1.5;}
- 
 
 .timeline {
-    position: relative;
-    width: 100%;
-}
-
-.timeline-block:nth-child(even) {
-    margin-left: auto;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    width: 4px;
-    background-color: #333;
-    top: 0;
-    bottom: 0;
+    margin: 5em auto;
+    max-width: 34.15em;
 }
 
 .timeline-block {
+    max-width: 34em;
+    padding-top: 2em;
+    padding-bottom: 2em;
     position: relative;
-    width: 50%;
-    padding: 10px 20px;
-    box-sizing: border-box;
+    
 }
 
+.timeline-block div{
+    border: 2px solid#888;
+    border-radius: 1em;
+    padding: 1.5em;
+    background-color: var(--dark-background-color);
+}
 
-.timeline-block .timeline-icon {
+.timeline-block p {
+    line-height: 27px;
+}
+
+.timeline-block:nth-child(odd) {
+    border-left: 3px solid #888;
+    padding-left: 3em;
+    transform: translateX(17em);
+}
+
+.timeline-block:nth-child(even) {
+    border-right: 3px solid #888;
+    padding-right: 3em;
+    transform: translateX(-17em);
+}
+
+.timeline-block:nth-child(odd)::before,
+.timeline-block:nth-child(even)::before {
+    content: '';
+    background: #888;
+    width: 3em;
+    height: 3px;
     position: absolute;
-    width: 30px;
-    height: 30px;
-    background-color: var(--dark-background-color);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.timeline-block:nth-child(odd)::before {
+    left: 0;
+}
+.timeline-block:nth-child(even)::before {
+    right: 0;
+}
+
+.timeline-block:nth-child(odd) div::before,
+.timeline-block:nth-child(even) div::before {
+    content: '';
+    background: var(--theme-color);
+    box-shadow: 0 0 0.5em var(--dark-background-color);
+    width: 0.8em;
+    height: 0.8em;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     border-radius: 50%;
-    text-align: center;
-    line-height: 30px;
-    font-size: 24px;
 }
 
-.timeline-icon {
-    left: calc(50%);
-    padding-top: .2rem;
+.timeline-block:nth-child(odd) div::before {
+    left: -0.5em
 }
 
-.timeline-content {
-    padding: 5px 10px;
-    background-color: var(--dark-background-color);
-    border-radius: 10px;
+.timeline-block:nth-child(even) div::before {
+    right: -0.5em
 }
 
-.left .timeline-content {
-    margin-left: 0;
-}
+@media screen and (max-width: 1150px) {
+    .timeline {
+        width: 80vw;
+    }
 
-.right .timeline-content {
-    margin-right: 0;
-}
+    .timeline-block p {
+        line-height: 27px;
+    }
 
-.date {
-    font-weight: bold;
+    .timeline .timeline-block {
+        width: 100%;
+        transform: none;
+        padding-left: 0;
+        padding-right: 0;
+        border: none;
+    }
+
+    .timeline .timeline-block::before {
+        width: 3px;
+        height: 4em;
+        top: -2em;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .timeline .timeline-block div::before {
+        top: -0.5em;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
 }
 
 #content {
@@ -311,6 +350,8 @@ h1 {
     background-color: var(--dark-background-color);
     flex-grow: 1; /* Erlaubt dem content-Element, den verbleibenden Platz einzunehmen */
     overflow-y: auto; /* Fügt einen Scrollbalken hinzu, falls der Inhalt länger als der Bildschirm ist */
+    min-height: calc(100vh - 66px); /* Passt die Höhe an die des Viewports an, abzüglich der Höhe des Headers */
+    flex-direction: column;
 }
 
 #inputArea {
@@ -367,47 +408,12 @@ h1 {
 
 
 #instruction, #generatedPoem {
+    
     margin: 20px 0;
     padding: 0.5rem;
-;
+    
 }
 
 #instruction {
     font-size: 20pt;
 }
-
-
-@media screen and (max-width: 600px) {
-    .timeline-block {
-        width: 100%;
-    }
-
-    .left .timeline-icon, .right .timeline-icon {
-        left: calc(50% - 10px); /* oder ein anderer Wert, um auf kleinen Bildschirmen zu justieren */
-    }
-
-    .right .timeline-content {
-        margin-left: 0;
-    }
-}
-
-@media (max-width: 400px) {
-    .site-nav ul {
-        flex-direction: column; /* Ändert die Flex-Richtung zu einer Spalte für mobile Ansicht */
-    }
-
-    .site-nav li {
-        width: 100%; /* Lässt die Links die volle Breite einnehmen */
-    }
-
-    .site-nav a {
-        display: block; /* Lässt jeden Link die volle Breite einnehmen */
-        text-align: center; /* Zentriert den Linktext */
-        margin: 5px 0; /* Fügt vertikalen Abstand zwischen den Links hinzu */
-    }
-}
-
-@media (min-width: 1280px) {
-    html {font-size: 1.25rem;}
-}
-
