@@ -233,6 +233,20 @@ h1 {
 
 .site-content { line-height: 1.5;}
 
+.background-container {
+    /* Hintergrundbild */
+    background-image: url(images/Backgroundimage-Moon.png); /* Pfad zu deinem Bild */
+    
+    /* Fixiertes Hintergrundbild */
+    background-attachment: fixed;
+    
+    /* Das Bild deckt den verfügbaren Raum ab, ohne seine Proportionen zu verlieren */
+    background-size: cover;
+    
+    /* Zentriert das Bild */
+    background-position: center center;
+}
+
 .timeline {
     margin: 5em auto;
     max-width: 34.15em;
@@ -243,7 +257,7 @@ h1 {
     padding-top: 2em;
     padding-bottom: 2em;
     position: relative;
-    
+    color: ;
 }
 
 .timeline-block div{
