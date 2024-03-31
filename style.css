@@ -245,10 +245,19 @@ h1 {
     
     /* Zentriert das Bild */
     background-position: center center;
+    margin: 0;
+    padding: 0;
+}
+
+.timeline-introduction {
+    border: 2px solid#888;
+    padding: 1em;
+    background-color: white;
+    color: var(--theme-color);
 }
 
 .timeline {
-    margin: 5em auto;
+    margin: 2em auto;
     max-width: 34.15em;
 }
 
@@ -257,14 +266,14 @@ h1 {
     padding-top: 2em;
     padding-bottom: 2em;
     position: relative;
-    color: ;
 }
 
 .timeline-block div{
     border: 2px solid#888;
     border-radius: 1em;
     padding: 1.5em;
-    background-color: var(--dark-background-color);
+    background-color: white;
+    color: var(--theme-color);
 }
 
 .timeline-block p {
@@ -353,6 +362,11 @@ h1 {
         transform: translateX(-50%);
     }
     
+}
+
+.yourday-container {
+    display: flex;
+    flex-direction: column;
 }
 
 #content {
