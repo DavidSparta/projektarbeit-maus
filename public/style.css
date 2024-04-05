@@ -229,11 +229,11 @@ button {
 
 .quote {
     font-size: 1.2rem;
-    font-style: italic;
 }
 
 .author-name {
     margin-top: 10px;
+    font-style: italic;
 }
 
 .left-arrow, .right-arrow {
