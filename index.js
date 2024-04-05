@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors()); // CORS als Middleware verwenden, um CORS-Header zu allen Antworten hinzuzufügen
 
 
-app.use(express.static('.'));
+app.use(express.static('public'));
 
 const openAIHeaders = {
   'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
