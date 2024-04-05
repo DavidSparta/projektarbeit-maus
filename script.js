@@ -1,3 +1,44 @@
+
+// Diese Funktion wird aufgerufen, um die Authentifizierung zu überprüfen
+function checkAuthentication() {
+    if (sessionStorage.getItem("authenticated") === "true") {
+        // Wenn der Benutzer authentifiziert ist, verstecke den passwordPrompt und zeige den .site-content Bereich
+        document.getElementById('passwordPrompt').style.display = 'none';
+        document.querySelector('.site-content').style.display = 'block';
+        document.querySelector('.site-footer').style.display = 'block';
+    } else {
+        // Wenn der Benutzer nicht authentifiziert ist, zeige den passwordPrompt
+        document.getElementById('passwordPrompt').style.display = 'flex';
+        //  Verstecke den .site-content und footer Bereich, falls dieser sichtbar sein sollte
+        document.querySelector('.site-content').style.display = 'none';
+        document.querySelector('.site-footer').style.display = 'none';
+    }
+}
+
+
+// Diese Funktion wird aufgerufen, wenn der Benutzer auf den Bestätigen-Button klickt
+function authenticate() {
+    var password = document.getElementById('passwordInput').value;
+    if (password === "21.08.2012") { // Ersetze dies durch dein tatsächliches Passwort
+        // Wenn das Passwort korrekt ist, setze den Authentifizierungsstatus und verstecke den Dialog
+        sessionStorage.setItem("authenticated", "true");
+        document.getElementById('passwordPrompt').style.display = 'none';
+        // Zeige den .site-content Bereich
+        document.querySelector('.site-content').style.display = 'block';
+    } else {
+        // Wenn das Passwort falsch ist, zeige eine Fehlermeldung
+        document.getElementById('errorText').style.display = 'block';
+    }
+}
+
+// Überprüfe die Authentifizierung, sobald die Seite geladen wird
+document.addEventListener('DOMContentLoaded', (event) => {
+    checkAuthentication();
+});
+
+
+
+
 //Karrusell Funktionalität
 document.addEventListener('DOMContentLoaded', function() {
     const slides = document.querySelectorAll('.carousel-slide');

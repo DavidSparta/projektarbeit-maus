@@ -10,6 +10,8 @@ body, html {
     margin: 0; /* Entfernt den Standard-Margin des Body und HTML Elements */
     padding: 0; /* Entfernt das Standard-Padding */
     width: 100%; /* Stellt sicher, dass der Body und HTML Elemente die volle Breite einnehmen */
+    display: flex;
+    flex-direction: column;
 }
 
 h1 {
@@ -87,6 +89,7 @@ h1 {
     background-color: var(--theme-color);
     padding: .1rem;
     text-align: right;
+    margin-top: auto;
 }
 
 .site-footer p {
@@ -96,6 +99,31 @@ h1 {
 
 .footer-links :last-child {
     margin-left: auto;
+}
+
+#passwordPrompt {
+    display: flex;
+    justify-content: center; /* Zentriert horizontal */
+    align-items: center; /* Zentriert vertikal */
+    padding: 20px; /* Fügt ein wenig Abstand rundherum hinzu, optional */
+}
+
+#promptBox {
+    text-align: center;
+}
+
+#passwordInput, button {
+    display: block;
+    margin: 0 auto 10px; /* Zentriert und fügt Abstand unten hinzu */
+    width: auto; /* Erlaubt Anpassung der Breite basierend auf Inhalt */
+}
+
+button {
+    padding: 10px;
+}
+
+#errorText {
+    margin-top: 10px;
 }
 
 .hero-section {
@@ -231,7 +259,11 @@ h1 {
     display: none;
 }
 
-.site-content { line-height: 1.5;}
+.site-content { 
+    line-height: 1.5;
+    display: none;
+  
+}
 
 .background-container {
     /* Hintergrundbild */
@@ -254,6 +286,7 @@ h1 {
     padding: 1em;
     background-color: white;
     color: var(--theme-color);
+    line-height: 1.5;
 }
 
 .timeline {
@@ -406,11 +439,12 @@ h1 {
     border-right-width: 5px; /* Verstärkt den rechten Rand, um eine visuelle Trennung zu betonen */
 }
 
-#inputArea button {
+button {
     background-color: var(--theme-color);/* Blaue Hintergrundfarbe */
     color: white; /* Weiße Schriftfarbe */
     cursor: pointer; /* Verändert den Cursor, um Klickbarkeit anzudeuten */
     border-color: #444; /* Dunklerer Rand für den Button für einen 3D-Effekt */
+    border-radius: 5%;
 }
 
 #userActivities {

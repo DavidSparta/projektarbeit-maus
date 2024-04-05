@@ -4,7 +4,7 @@ const axios = require('axios');
 const cors = require('cors'); // CORS importieren
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors()); // CORS als Middleware verwenden, um CORS-Header zu allen Antworten hinzuzufügen

@@ -24,7 +24,16 @@
             </ul>
         </nav>
     </div>
-
+    <!-- Authentifizierungsdialog -->
+    <div id="passwordPrompt">
+        <div id="promptBox">
+        <h2>Login: Unser Jahrestag</h2>
+        <input type="password" id="passwordInput" placeholder="TT.MM.JJJJ">
+        <button onclick="authenticate()">Weiter zur Seite</button>
+        <p id="errorText" style="color: red; display: none;">Falsches Passwort</p>
+        </div>
+    </div>
+    <script src="script.js"></script> 
     <main class="site-content">
         <section class="hero-section">
             <h1>Die Frau, die mein Leben erhellt</h1>
@@ -229,7 +238,6 @@
 
     <footer class="site-footer">
         <p>&#169; Davless </p>
-    </footer>
-    <script src="script.js"></script>    
+    </footer> 
 </body>
 </html>
