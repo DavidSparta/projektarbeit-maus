@@ -96,7 +96,12 @@ app.post('/generate-poem', async (req, res) => {
     res.status(500).send("Ein Fehler ist bei der Generierung des Gedichts aufgetreten.");
   }
 });
-  
+
+app.get('/', (req, res) => {
+  res.send('Willkommen auf meiner Website!');
+});
+
+
 app.listen(port, '0.0.0.0', () => {
   console.log(`Server is running on port ${port}`);
 });
