@@ -9,8 +9,8 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors()); // CORS als Middleware verwenden, um CORS-Header zu allen Antworten hinzuzufügen
 
-// Middleware, um statische Dateien aus dem 'public'-Ordner zu bedienen
-app.use(express.static('projektarbeit-maus'));
+
+app.use(express.static('.'));
 
 const openAIHeaders = {
   'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
@@ -96,11 +96,6 @@ app.post('/generate-poem', async (req, res) => {
     res.status(500).send("Ein Fehler ist bei der Generierung des Gedichts aufgetreten.");
   }
 });
-
-app.get('/', (req, res) => {
-  res.send('Willkommen auf meiner Website!');
-});
-
 
 app.listen(port, '0.0.0.0', () => {
   console.log(`Server is running on port ${port}`);
