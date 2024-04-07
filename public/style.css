@@ -267,7 +267,7 @@ button {
 
 .background-container {
     /* Hintergrundbild */
-    background-image: url(images/Backgroundimage-Moon.png); /* Pfad zu deinem Bild */
+    background-image: url(images/DALL·E\ 2024-03-30\ 13.02.46\ -\ Create\ a\ bright\,\ simple\ background\ image\ suitable\ for\ a\ website.\ The\ image\ should\ be\ in\ portrait\ orientation\ and\ contain\ the\ colors\ gray\,\ black\,\ and\ w.webp); /* Pfad zu deinem Bild */
     
     /* Fixiertes Hintergrundbild */
     background-attachment: fixed;
@@ -280,6 +280,17 @@ button {
     margin: 0;
     padding: 0;
 }
+
+.background-image {
+    position: fixed; /* Oder absolute, je nach Bedarf */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Stellt das Bild hinter den Inhalt */
+    object-fit: cover; /* Sorgt dafür, dass das Bild den Container voll ausfüllt ohne das Seitenverhältnis zu verzerren */
+}
+
 
 .timeline-introduction {
     border: 2px solid#888;
