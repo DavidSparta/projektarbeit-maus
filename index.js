@@ -20,7 +20,7 @@ const openAIHeaders = {
 app.post('/generate-image', async (req, res) => {
     const userActivities = req.body.activities; // Hier wird der Benutzertext aus dem Request aufgenommen
     const prompt = `Erstelle einen kleinen Comic, der das lebendige Leben einer 29-jährigen, gutaussehenden Frau westeuropäischen Typs mit langen dunkelbraunen Haaren, grün-braunen Augen und einer sportlichen Figur, darstellt. In dem Comic führt sie folgende Aktivitäten aus: 
-     ${userActivities}. Der Comic soll aus 4 Paneln bestehen und enthält keinerlei Schrift. Die Frau arbeitet als Lehrerin an einer Mädchenschule. Dort ist sie stets schick gekleidet mit einen Blazer, goldenen Ohrringen, einer feinen goldenen Kette und einer rosefarbenen Smartwatch. 
+     ${userActivities}. Der Comic soll keinerlei Schrift enthalten. Die Frau arbeitet als Lehrerin an einer Mädchenschule. Dort ist sie stets schick gekleidet mit einen Blazer, goldenen Ohrringen, einer feinen goldenen Kette und einer rosefarbenen Smartwatch. 
     Die Frau ist bekannt für ihre lebensfrohe, vertrauenserweckende und positive Ausstrahlung. Der Comic soll die Aktivitäten fröhlich darstellen.`;
   
     try {
