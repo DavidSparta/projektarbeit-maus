@@ -251,7 +251,7 @@ button {
 
 .right-arrow {
     right: 10px;
-}
+} 
 
 /* Stil, um die Scrollleiste zu verbergen (optional) */
 .carousel-container::-webkit-scrollbar {
@@ -418,7 +418,6 @@ button {
     align-items: center;
     text-align: center;
     width: 100%;
-    background-color: var(--dark-background-color);
     flex-grow: 1; /* Erlaubt dem content-Element, den verbleibenden Platz einzunehmen */
     overflow-y: auto; /* Fügt einen Scrollbalken hinzu, falls der Inhalt länger als der Bildschirm ist */
     min-height: calc(100vh - 66px); /* Passt die Höhe an die des Viewports an, abzüglich der Höhe des Headers */
@@ -476,6 +475,11 @@ button {
     height: auto; /* Passt die Höhe automatisch an, um das Seitenverhältnis zu bewahren */
     max-width: 95vw; /* Stellt sicher, dass das Bild maximal 95% der Bildschirmbreite einnimmt */
     margin: 20px auto; /* Zentriert das Bild horizontal und fügt einen Abstand oben und unten hinzu */
+    border: 2px solid#888;
+    border-radius: 1em;
+    padding: 0.5em;
+    background-color: white;
+    color: var(--theme-color);
 }
 
 
@@ -483,7 +487,15 @@ button {
     
     margin: 20px 0;
     padding: 0.5rem;
-    
+}
+
+#generatedPoem {
+    border: 2px solid#888;
+    border-radius: .5em;
+    padding: 0.5em;
+    background-color: white;
+    color: var(--theme-color);
+
 }
 
 #instruction {
