@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 
 const limiter = rateLimit({
   windowMs: 24 * 60 * 60 * 1000, // 24 Stunden in Millisekunden
-  max: 20, // Maximale Anzahl von Requests pro FensterMs
+  max: 200, // Maximale Anzahl von Requests pro FensterMs
   keyGenerator: () => 'global', // Verwende einen konstanten Schlüssel für alle Anfragen
   standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers
