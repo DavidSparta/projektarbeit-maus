@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 body: JSON.stringify({ activities }),
             });
 
-            const poemResponse = await fetch('https://projektarbeit-maus.cyclic.app/generate-image', {
+            const poemResponse = await fetch('https://projektarbeit-maus.cyclic.app/generate-poem', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ activities }),
