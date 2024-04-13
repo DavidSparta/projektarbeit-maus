@@ -2,9 +2,22 @@ require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors'); // CORS importieren
+const rateLimit = require('express-rate-limit');
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+const limiter = rateLimit({
+  windowMs: 24 * 60 * 60 * 1000, // 24 Stunden in Millisekunden
+  max: 20, // Maximale Anzahl von Requests pro FensterMs
+  keyGenerator: () => 'global', // Verwende einen konstanten Schlüssel für alle Anfragen
+  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+  message: 'Zu viele Anfragen von dieser IP, bitte versuche es später noch einmal.'
+});
+
+// Wende das Rate Limiting auf alle Anfragen an
+app.use(limiter);
 
 app.use(express.json());
 app.use(cors()); // CORS als Middleware verwenden, um CORS-Header zu allen Antworten hinzuzufügen

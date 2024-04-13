@@ -127,7 +127,11 @@ button {
 }
 
 .hero-section {
-    margin-bottom:2rem;
+    padding-bottom: 1rem;
+    background-image: url(images/25098.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+    padding: 20px;
 }
 
 .portrait-container {
@@ -190,8 +194,10 @@ button {
 
 .intro {
     padding: 1rem;
-    line-height: 175%;
-    background-color: var(--dark-background-color);
+    line-height: 200%;
+    background-color: #EBECF0;
+    padding: 20px;
+
 
 }
 
