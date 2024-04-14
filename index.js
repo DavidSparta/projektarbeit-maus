@@ -41,7 +41,15 @@ app.post('/generate-image', async (req, res) => {
 
 app.post('/generate-poem', async (req, res) => {
   const userActivities = req.body.activities; // Der Benutzertext aus dem Request
-  const prompt = `Agiere als Mann, der ein Gedicht über den Tagesablauf seiner Freundin schreibt. Du wirst eine Liste von Aktivitäten bekommen, die die Userin (die Freundin) an diesem Tag ausführen wird.Bei der Userin handelt es sich um eine junge Lehrerin. Ihr Charakter zeichnet sich durch folgende Eigenschaften aus: lebhaft, sportlich, leidenschaftlich, lustig, offen und gelassen. Das Gedicht soll den Tag der Lehrerin beschreiben. Das Gedicht soll aus 3 Strophen bestehen. Jede Strophe soll aus 4 Zeilen bestehen die per Paarreime aufeinander aufbauen. Das Gedicht soll der Userin ein gutes Gefühl geben, wenn sie daran denkt was an dem Tag ansteht. Es soll ihre positiven Eigenschaften untermauen und erkennen lassen, wie sehr ihr Freund sie liebt.: ${userActivities}`;
+  const prompt = `Agiere als Mann, der ein Gedicht über den Tagesablauf seiner Freundin schreibt. 
+  Du wirst eine Liste von Aktivitäten bekommen, die die Userin (die Freundin) an diesem Tag ausführen wird. 
+  Bei der Userin handelt es sich um eine junge Lehrerin. Ihr Charakter zeichnet sich durch folgende Eigenschaften aus: 
+  lebhaft, sportlich, leidenschaftlich, lustig, offen und gelassen. Das Gedicht soll den Tag der Lehrerin beschreiben. 
+  Das Gedicht soll aus 3 Strophen bestehen. Jede Strophe soll aus 4 Zeilen bestehen die per Paarreime aufeinander aufbauen. 
+  Das Gedicht soll der Userin ein gutes Gefühl geben, wenn sie daran denkt was an dem Tag ansteht. 
+  Es soll ihre positiven Eigenschaften untermauen und erkennen lassen, wie sehr ihr Freund sie liebt.
+  Die Reime sollen möglichst sauber sein und das Gedicht soll inhaltlich Sinn machen. 
+  Die Aktivitäten sind: ${userActivities}`;
 
   try {
     const response = await axios.post('https://api.openai.com/v1/chat/completions', {
@@ -61,7 +69,7 @@ app.post('/generate-poem', async (req, res) => {
         },
         {
           "role": "user",
-          "content": "Morgens gehe ich shoppen mit einer Freundin und abends spiele ich Tischtennis "
+          "content": "Morgens gehe ich shoppen mit einer Freundin und abends spiele ich Tischtennis."
         },
         {
           "role": "assistant",
