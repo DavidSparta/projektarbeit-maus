@@ -104,7 +104,7 @@ app.post('/generate-poem', async (req, res) => {
           "content": userActivities // Hier wiederholen wir den Benutzertext, so wie im CURL-Beispiel
         }
       ],
-      temperature: 0.7,
+      temperature: 1,
       max_tokens: 256,
       top_p: 1,
       frequency_penalty: 0,
