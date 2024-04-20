@@ -421,7 +421,7 @@ button {
     width: 100%;
     flex-grow: 1; /* Erlaubt dem content-Element, den verbleibenden Platz einzunehmen */
     overflow-y: auto; /* Fügt einen Scrollbalken hinzu, falls der Inhalt länger als der Bildschirm ist */
-    min-height: calc(100vh - 128px); /* Passt die Höhe an die des Viewports an, abzüglich der Höhe des Headers */
+    min-height: 100%; /* Passt die Höhe an die des Viewports an, abzüglich der Höhe des Headers */
     flex-direction: column;
 }
 
