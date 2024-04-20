@@ -413,11 +413,6 @@ button {
     
 }
 
-.yourday-container {
-    display: flex;
-    flex-direction: column;
-}
-
 #content {
     display: flex;
     justify-content: center;
@@ -426,7 +421,7 @@ button {
     width: 100%;
     flex-grow: 1; /* Erlaubt dem content-Element, den verbleibenden Platz einzunehmen */
     overflow-y: auto; /* Fügt einen Scrollbalken hinzu, falls der Inhalt länger als der Bildschirm ist */
-    min-height: calc(100vh - 66px); /* Passt die Höhe an die des Viewports an, abzüglich der Höhe des Headers */
+    min-height: calc(100vh - 128px); /* Passt die Höhe an die des Viewports an, abzüglich der Höhe des Headers */
     flex-direction: column;
 }
 
@@ -443,7 +438,7 @@ button {
 #inputArea input, #inputArea button {
     padding: 10px 15px; /* Gibt Input und Button ein angenehmes Padding */
     font-size: 16px; /* Legt eine passende Schriftgröße fest */
-    border: 2px solid var(--theme-color);
+    border: 2px solid var(--light-background-color);
     border-radius: 5px; /* Rundet die Ecken für ein modernes Aussehen */
     margin: 10px 0; /* Fügt etwas Abstand oben und unten hinzu */
 }
@@ -489,7 +484,7 @@ button {
 }
 
 
-#instruction, #generatedPoem {
+#instruction {
     
     margin: 20px 0;
     padding: 0.5rem;
@@ -501,6 +496,7 @@ button {
     padding: 0.5em;
     background-color: white;
     color: var(--theme-color);
+    margin: 0.5em;
 
 }
 
