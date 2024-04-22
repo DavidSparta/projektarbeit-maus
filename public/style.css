@@ -323,11 +323,26 @@ button {
     padding: 1.5em;
     background-color: white;
     color: var(--theme-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .timeline-block p {
     line-height: 27px;
 }
+
+.timeline-picture {
+    width: 25vw;
+    height: 25vw;
+    border-radius: 50%;
+    max-width: 300px; /* oder eine andere Größe */
+    max-height: 300px; /* sollte gleich der Breite sein für einen perfekten Kreis */
+    object-fit: cover;
+    border: 1px solid var(--theme-color);
+}
+
 
 .timeline-block:nth-child(odd) {
     border-left: 3px solid #888;

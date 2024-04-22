@@ -20,7 +20,7 @@ const openAIHeaders = {
 app.post('/generate-image', async (req, res) => {
     const userActivities = req.body.activities; // Hier wird der Benutzertext aus dem Request aufgenommen
     const prompt = `Erstelle einen kleinen Comic, der das lebendige Leben einer 29-jährigen, gutaussehenden Frau westeuropäischen Typs mit langen dunkelbraunen Haaren, grün-braunen Augen und einer sportlichen Figur, darstellt. In dem Comic führt sie folgende Aktivitäten aus: 
-     ${userActivities}. Der Comic soll keinerlei Schrift enthalten. Die Frau arbeitet als Lehrerin an einer Mädchenschule. Dort ist sie stets schick gekleidet mit einen Blazer, goldenen Ohrringen, einer feinen goldenen Kette und einer rosefarbenen Smartwatch. 
+     ${userActivities}. Der Comic soll keinerlei Schrift enthalten. Die Frau arbeitet als Lehrerin an einer Mädchenschule. Dort ist sie stets schick gekleidet mit einen Blazer, goldenen Ohrringen und einer feinen goldenen Kette. 
     Die Frau ist bekannt für ihre lebensfrohe, vertrauenserweckende und positive Ausstrahlung. Der Comic soll die Aktivitäten fröhlich darstellen.`;
   
     try {
@@ -46,6 +46,7 @@ app.post('/generate-poem', async (req, res) => {
   Bei der Userin handelt es sich um eine junge Lehrerin. Ihr Charakter zeichnet sich durch folgende Eigenschaften aus: 
   lebhaft, sportlich, leidenschaftlich, lustig, offen und gelassen. Das Gedicht soll den Tag der Lehrerin beschreiben. 
   Das Gedicht soll aus 3 Strophen bestehen. Jede Strophe soll aus 4 Zeilen bestehen die per Paarreime aufeinander aufbauen. 
+  Das Gedicht darf auf keinen Fall länger werden.
   Das Gedicht soll der Userin ein gutes Gefühl geben, wenn sie daran denkt was an dem Tag ansteht. 
   Es soll ihre positiven Eigenschaften untermauen und erkennen lassen, wie sehr ihr Freund sie liebt.
   Die Reime sollen möglichst sauber sein und das Gedicht soll inhaltlich Sinn machen. 
