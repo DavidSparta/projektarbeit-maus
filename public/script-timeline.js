@@ -5,26 +5,26 @@ function checkCode() {
     let isValidCode = false;
 
     switch(inputCode) {
-        case 'W11':
+        case 'W!1':
             document.getElementById("timeline-item2").style.display = 'block';
             isValidCode = true;
             break;
-        case '15T':
+        case '15TD':
             document.getElementById("timeline-item3").style.display = 'block';
             isValidCode = true;
             break;
-        case '0UM':
+        case 'UM!':
             document.getElementById("timeline-item4").style.display = 'block';
             isValidCode = true;
             break;            
-        case '1CH':
+        case '(HH3':
             document.getElementById("timeline-item5").style.display = 'block';
             document.getElementById("timeline-item6").style.display = 'block';
             document.getElementById("timeline-item7").style.display = 'block';
             document.getElementById("timeline-item8").style.display = 'block';
             isValidCode = true;
             break;   
-        case 'H31R':
+        case '!R4':
             document.getElementById("timeline-item9").style.display = 'block';
             document.getElementById("timeline-item10").style.display = 'block';
             document.getElementById("timeline-item11").style.display = 'block';
@@ -33,7 +33,7 @@ function checkCode() {
             isValidCode = true;
             break; 
 
-        case '4T3N':
+        case 'T3N':
             document.getElementById("timeline-item14").style.display = 'block';
             document.getElementById("timeline-item15").style.display = 'block';
             document.getElementById("timeline-item16").style.display = 'block';
