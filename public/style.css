@@ -116,7 +116,33 @@ h1 {
     display: block;
     margin: 0 auto 10px; /* Zentriert und fügt Abstand unten hinzu */
     width: auto; /* Erlaubt Anpassung der Breite basierend auf Inhalt */
+    size: 120px;
+    font-size: 18px;
 }
+
+#codeInput, button {
+    display: block;
+    margin: 0 auto 10px; /* Zentriert und fügt Abstand unten hinzu */
+    width: auto; /* Erlaubt Anpassung der Breite basierend auf Inhalt */
+    font-size: 18px;
+}
+
+#codeButton {
+    display: block;
+    padding: 10px 15px; /* Gibt Input und Button ein angenehmes Padding */
+    font-size: 16px; /* Legt eine passende Schriftgröße fest */
+    border: 2px solid var(--light-background-color);
+    border-radius: 5px; /* Rundet die Ecken für ein modernes Aussehen */
+}
+
+#error-message {
+    color: red;        /* Rote Textfarbe */
+    margin-top: 10px;  /* Abstand nach oben für bessere Sichtbarkeit */
+    display: none;     /* Standardmäßig versteckt */
+    margin-bottom: 20px;
+}
+
+
 
 button {
     padding: 10px;
@@ -315,6 +341,11 @@ button {
     padding-top: 2em;
     padding-bottom: 2em;
     position: relative;
+    display: none;
+}
+
+#timeline-item1 {
+    display: block;
 }
 
 .timeline-block div{
