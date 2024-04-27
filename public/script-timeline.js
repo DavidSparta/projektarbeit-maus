@@ -38,7 +38,7 @@ function checkCode() {
             isValidCode = true;
             break; 
 
-        case 'T3N':
+        case 'T3N?':
             document.getElementById("timeline-item14").style.display = 'block';
             document.getElementById("timeline-item15").style.display = 'block';
             document.getElementById("timeline-item16").style.display = 'block';
@@ -46,7 +46,7 @@ function checkCode() {
             isValidCode = true;
             break;
 
-        case 'JA!':
+        case 'JA':
             document.getElementById("timeline-item17").style.display = 'block';
             document.getElementById("promptBox").style.display = 'none';
             localStorage.setItem('progress', 'Code7');
